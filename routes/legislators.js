@@ -14,13 +14,13 @@ router.post('/', (req, res) => {
 
 
 let saveLegislator = (newLegislator, cb) => {
-  if(!newLegislator){
-    return cb('No Legislator Provided.', null);
-  }else{
+  if (newLegislator){
     newLegislator.id = count;
     legislators.push(newLegislator);
     count += 1;
     return cb(null, newLegislator);
+  }else {
+    return cb('No Legislator Provided.', null);
   }
 }
 

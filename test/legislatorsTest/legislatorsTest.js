@@ -18,7 +18,7 @@ describe("Creating Legislators", () => {
     .send(testDB.testData1)
     .end((err, resp) => {
       expect(err).to.be.null;
-      expect(resp).to.be.an("object");
+      expect(resp.body).to.be.an("object");
       expect(resp.body.id).to.equal(1);
       expect(resp.body.name).to.equal("John Smith");
       expect(resp.body.state).to.equal("CA");
@@ -35,7 +35,7 @@ describe("Creating Legislators", () => {
     .send(testDB.testData2)
     .end((err, resp) => {
       expect(err).to.be.null;
-      expect(resp).to.be.an("object");
+      expect(resp.body).to.be.an("object");
       expect(resp.body.id).to.equal(2);
       expect(resp.body.name).to.equal("Jane Smith");
       expect(resp.body.state).to.equal("PA");
@@ -52,7 +52,7 @@ describe("Creating Legislators", () => {
     .send(testDB.testData3)
     .end((err, resp) => {
       expect(err).to.be.null;
-      expect(resp).to.be.an("object");
+      expect(resp.body).to.be.an("object");
       expect(resp.body.id).to.equal(3);
       expect(resp.body.name).to.equal("Karen Doe");
       expect(resp.body.state).to.equal("MA");
@@ -69,7 +69,7 @@ describe("Creating Legislators", () => {
     .send(testDB.testData4)
     .end((err, resp) => {
       expect(err).to.be.null;
-      expect(resp).to.be.an("object");
+      expect(resp.body).to.be.an("object");
       expect(resp.body.id).to.equal(4);
       expect(resp.body.name).to.equal("Steve Smith");
       expect(resp.body.state).to.equal("FL");
@@ -86,7 +86,7 @@ describe("Creating Legislators", () => {
     .send(testDB.testData5)
     .end((err, resp) => {
       expect(err).to.be.null;
-      expect(resp).to.be.an("object");
+      expect(resp.body).to.be.an("object");
       expect(resp.body.id).to.equal(5);
       expect(resp.body.name).to.equal("Jane Doe");
       expect(resp.body.state).to.equal("CA");
@@ -98,6 +98,16 @@ describe("Creating Legislators", () => {
     })
   })
 
-
+  it('Should fail to create the legislator', done => {
+    chaiApp.post('/legislators')
+    .send(null)
+    .end((err, resp) => {
+      console.log(err);
+      expect(err).to.exist;
+      expect(err).to.be.a("string");
+      expect(err).to.equal("No Legislator Provided.");
+      done();
+    })
+  })
 
 })

@@ -1,11 +1,11 @@
 ### Legislator API challenge
 
-To install and run you this assumes you have
+To install and run this assumes you have
 NPM and Node.js installed.
 
-
+Create a new directory
 ```
-md legislators && cd legislators
+git clone https://github.com/robertsonsamuel/legislator-api.git && cd legislator-api
 
 npm install
 ```

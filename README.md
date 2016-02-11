@@ -15,11 +15,11 @@ Start the server by running
 npm start
 ```
 
-To run a route test for legislators route
-This will test creating three new legislators,
-read two existing legislators and read one created legislator.
-
+To run a route test for legislators route use:
 ```
 npm run routeTest
 
 ```
+
+This will test creating three new legislators,
+read two existing legislators by id, and read one created legislator by id.

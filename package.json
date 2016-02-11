@@ -8,6 +8,10 @@
     "setup": "rm -rf node_modules && npm install",
     "routeTest": "./node_modules/.bin/mocha ./test/legislatorsTest/"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertsonsamuel/legislator-api.git"
+  },
   "engines": {
     "node": "4.2.3"
   },

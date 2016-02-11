@@ -14,10 +14,10 @@ let count = 3;
 
 let valid = (id) => {
   id = Number(id)
-  if(Number(id) <= testDB.length && typeof id === 'number' ){
-    return true
-  }else{
-    return false
+  if (Number(id) <= testDB.length && typeof id === 'number' ){
+     return true
+  } else {
+     return false
   }
 }
 

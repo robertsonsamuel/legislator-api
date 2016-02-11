@@ -109,4 +109,24 @@ describe("Get legislators by their ID.", () => {
     })
   })
 
+  it('Should fail to get a legislator by ID: Taco', done => {
+    chaiApp.get('/legislators/taco')
+    .end((err, resp) => {
+      expect(err).to.be.exist;
+      expect(resp).to.have.status(400);
+      expect(resp.text).to.equal("No legislators in the Database or none found.");
+      done();
+    })
+  })
+
+  it('Should fail to get a legislator by ID: 235325', done => {
+    chaiApp.get('/legislators/235325')
+    .end((err, resp) => {
+      expect(err).to.be.exist;
+      expect(resp).to.have.status(400);
+      expect(resp.text).to.equal("No legislators in the Database or none found.");
+      done();
+    })
+  })
+
 })

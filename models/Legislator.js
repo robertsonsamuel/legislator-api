@@ -4,7 +4,7 @@ let testDB = require('../database/tempDB');
 let count = 3;
 
 // checks for duplicates in the database
-function inDataBase(name) {
+ let inDataBase = (name) => {
   var id = testDB.length + 1;
   var found = testDB.some(function (el) {
     return el.name === name;
@@ -12,6 +12,14 @@ function inDataBase(name) {
   return found
 }
 
+let valid = (id) => {
+  id = Number(id)
+  if(Number(id) <= testDB.length && typeof id === 'number' ){
+    return true
+  }else{
+    return false
+  }
+}
 
 module.exports = {
 
@@ -33,11 +41,11 @@ module.exports = {
 
   // gets legislator by id
   getLegislator: (id, cb) => {
-    if (testDB.length) {
+    if (testDB.length && valid(id)) {
       let elementPos = testDB.map( leg => { return leg.id }).indexOf(Number(id))
       return cb(null , testDB[elementPos])
     } else {
-      return cb('No legislators in the Database.', null)
+      return cb('No legislators in the Database or none found.', null)
     }
   }
 

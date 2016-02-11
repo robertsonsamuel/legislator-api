@@ -31,6 +31,7 @@ module.exports = {
     }
   },
 
+  // gets legislator by id
   getLegislator: (id, cb) => {
     if (testDB.length) {
       let elementPos = testDB.map( leg => { return leg.id }).indexOf(Number(id))

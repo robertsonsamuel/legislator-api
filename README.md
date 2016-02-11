@@ -7,7 +7,7 @@ Run the following to get started
 ```
 git clone https://github.com/robertsonsamuel/legislator-api.git && cd legislator-api
 
-npm install
+npm run setup
 ```
 Start the server by running
 

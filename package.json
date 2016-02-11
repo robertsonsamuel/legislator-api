@@ -16,12 +16,11 @@
   "devDependencies": {
     "chai": "*",
     "chai-http": "*",
-    "mocha": "*",
-    "superagent": "*"
+    "mocha": "*"
   },
   "dependencies": {
     "body-parser": "*",
     "express": "*",
-    "morgan": "^1.6.1"
+    "morgan": "*"
   }
 }

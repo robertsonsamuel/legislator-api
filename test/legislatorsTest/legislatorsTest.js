@@ -55,7 +55,31 @@ describe("Creating Legislators", () => {
       expect(err).to.exist;
       expect(resp).to.have.status(400);
       expect(resp.text).to.be.a("string");
-      expect(resp.text).to.equal("No Legislator Provided.");
+      expect(resp.text).to.equal("No legislator or incomplete provided.");
+      done();
+    })
+  })
+
+  it('Should fail to create the legislator given incomplete data', done => {
+    chaiApp.post('/legislators')
+    .send(testDB.testData6)
+    .end((err, resp) => {
+      expect(err).to.exist;
+      expect(resp).to.have.status(400);
+      expect(resp.text).to.be.a("string");
+      expect(resp.text).to.equal("No legislator or incomplete provided.");
+      done();
+    })
+  })
+
+  it('Should fail to create the legislator given wrong data keys', done => {
+    chaiApp.post('/legislators')
+    .send(testDB.testData6)
+    .end((err, resp) => {
+      expect(err).to.exist;
+      expect(resp).to.have.status(400);
+      expect(resp.text).to.be.a("string");
+      expect(resp.text).to.equal("No legislator or incomplete provided.");
       done();
     })
   })

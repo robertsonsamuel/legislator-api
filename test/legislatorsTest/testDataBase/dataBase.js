@@ -26,4 +26,19 @@ module.exports =  {
     "term_ends_on": "2018-02-01"
   },
 
+  testData6: {
+    "name": "Jane Doe",
+    "state": "CA",
+    "political_party": "democratic",
+    "term_ends_on": "2018-02-01"
+  },
+
+  testData7: {
+    "firstLastName": "Jane Doe",
+    "STATE": "CA",
+    "DIS": 8,
+    "Party": "democratic",
+    "Start": "2016-02-01",
+    "End": "2018-02-01"
+  },
 }

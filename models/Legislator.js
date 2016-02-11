@@ -25,7 +25,13 @@ module.exports = {
 
   // handles saving the new legislator to the testDB
   saveLegislator: (newLegislator, cb) => {
-    if (Object.keys(newLegislator).length === 6) { // length of object must be 6, expect this each time
+    let testKeys = ["name", "state" ,"district", "political_party", "term_starts_on","term_ends_on"]
+    let newKeys = Object.keys(newLegislator)
+    let is_same = testKeys.length == newKeys.length && testKeys.every(function(element, index) {
+        return element === newKeys[index];
+    });
+
+    if (newKeys.length === 6 && is_same) { // length of object must be 6, expect this each time
       if (inDataBase(newLegislator.name)) {
         return cb('Duplicate Entry', null)
       } else {
@@ -35,7 +41,7 @@ module.exports = {
           return cb(null, newLegislator);
         }
     } else {
-      return cb('No Legislator Provided.', null);
+      return cb('No legislator or incomplete provided.', null);
     }
   },
 

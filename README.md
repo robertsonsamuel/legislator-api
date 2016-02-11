@@ -3,7 +3,7 @@
 To install and run this assumes you have
 NPM and Node.js installed.
 
-Create a new directory
+Run the following to get started
 ```
 git clone https://github.com/robertsonsamuel/legislator-api.git && cd legislator-api
 
